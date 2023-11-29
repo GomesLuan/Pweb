@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">  
+        <link href="estilo.css" rel="stylesheet">     
+    </head>
+    <body>
+        <div><a id="linkCarregar" href="#">Carregando jogos...</a></div>
+        <br/>
+        <div id="teu amor"><a id="linkOrdenar" href="#">Ordenar jogos...</a></div>     
+        <br/>
+        <div id="seu amor"><a id="linkEmbaralhar" href="#">Embaralhar jogos...</a></div>  
+        <br/>  
+        <div id="meu amor"></div>              
+    </body>   
+    <script>
+        let jogos = ["RDR2", "God of War", "The Witcher"]   
+        const div = document.getElementById("meu amor")
+        const carregarDiv = (games) => {
+            const jogosHtml = games.map(item => `<tr><td>${item}</td></tr>` ) 
+            div.innerHTML = `<table>
+                <tr>
+                    <th>Jogo</th>
+                </tr>
+                ${jogosHtml.join("\n")}
+            </table>`
+        }
+        const ordenarDiv = (games) => {
+            if (div.innerHTML != ``) {
+                games.sort()
+                carregarDiv(games)
+            }
+        }
+        const embaralharDiv = (games) => {
+            if (div.innerHTML != ``) {
+                games.sort(() => Math.random() - 0.5)
+                carregarDiv(games)
+            }
+        }
+        let linkCarregar = document.getElementById("linkCarregar")
+        linkCarregar.addEventListener("click", () => carregarDiv(jogos))       
+        let linkOrdenar = document.getElementById("linkOrdenar")          
+        linkOrdenar.addEventListener("click", () => ordenarDiv(jogos))  
+        let linkEmbaralhar = document.getElementById("linkEmbaralhar")          
+        linkEmbaralhar.addEventListener("click", () => embaralharDiv(jogos))               
+    </script>
+</html>

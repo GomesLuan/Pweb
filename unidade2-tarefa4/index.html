@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>ReceitaReact - 3</title>      
+   </head>
+   <body>
+      <div id="app">
+      </div>
+
+      <script src="libs/react.js"></script>
+      <script src="libs/react-dom.js"></script>
+      <script src="libs/babel.js"></script>
+
+      <script type="text/babel">
+            const TabelaBebidas = ({titulo,cabecalhos,objJson,propriedades}) => {
+                return (
+                    <div>
+                        <h1>{titulo}</h1>
+                        <table id="tabela" border="1">
+                            <thead>
+                                <tr>{cabecalhos.map(cab => <th>{cab}</th>)}</tr>
+                            </thead>
+                            <tbody>
+                                {objJson.map(obj => <tr>{propriedades.map(prop => <td>{obj[prop]}</td>)}</tr>)}
+                            </tbody>
+                        </table>
+                    </div>
+                )  
+            }
+
+
+            const valoresCabecalhos = ["Nome", "Marca", "Preço"]
+            const valoresPropriedades = ["nome", "marca", "preco"]
+            const bebidas = [
+                {
+                    "nome" : "Havana",
+                    "marca" : "Engenho Anísio Santiago",
+                    "preco" : "R$ 30.00"
+                },
+                {
+                    "nome" : "Caipirinha",
+                    "marca" : "Barraca do Seu Zé",
+                    "preco" : "R$ 10.00"
+                },
+                {
+                    "nome" : "Cerveja",
+                    "marca" : "Bar da Esquina",
+                    "preco" : "R$ 20.00"
+                }
+            ]
+
+            ReactDOM.render(
+                <TabelaBebidas titulo="minha tabela de cana" cabecalhos={valoresCabecalhos} objJson={bebidas} propriedades={valoresPropriedades}/>,
+                document.getElementById("app")
+            )
+      </script>
+   </body>
+</html>

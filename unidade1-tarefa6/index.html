@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">   
+        <link href="estilo.css" rel="stylesheet">    
+        <script src="funcoes.js"></script>
+    </head>
+    <body>
+        <div><button id="botaoCarregar">Carregando veículos...</button></div>
+        <div id="itensDiv"></div>            
+    </body>   
+    <script>
+        let veiculos = []
+        async function carregarVeiculos(){
+            const div = document.getElementById("itensDiv")
+            try{
+                let res = await fetch("https://random-data-api.com/api/vehicle/random_vehicle?size=3")
+                veiculos = await res.json()
+                carregarDiv(veiculos, div)
+            }catch(err){
+                document.getElementById("veiculosDiv").innerHTML = "Fudeu..."
+            }
+        }
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", () => carregarVeiculos() )                  
+    </script>
+</html>

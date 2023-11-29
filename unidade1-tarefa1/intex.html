@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Uma trova</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            .row {
+                margin-left:-5px;
+                margin-right:-5px;
+            }
+                
+            .column {
+                float: left;
+                width: 50%;
+                padding: 5px;
+            }
+
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+                width: 100%;
+                border: 1px solid #ddd;
+            }
+
+            th, td {
+                text-align: left;
+                padding: 16px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="https://akamai.sscdn.co/uploadfile/letras/playlists/3/a/b/9/3ab92363f7974d679f4194de9f389b5b.jpg"
+width="200"/>
+        <h1>Uma trova...</h1>
+        <p>
+            Eu só preciso de hoje<br/>      
+            Pra viver e ser feliz<br/>
+            O passado já me foge<br/>
+            E o futuro nada diz!<br/>
+        </p>
+        <br/>
+        <p>
+            Autor: Francisco Borges
+        </p>
+        <div class="row">
+            <div class="column">
+                <table>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                    </tr>
+                    <tr>
+                        <td>Caipirinha</td>
+                        <td>R$7.00</td>
+                    </tr>
+                    <tr>
+                        <td>Pitu</td>
+                        <td>R$10.00</td>
+                    </tr>
+                    <tr>
+                        <td>Black label</td>
+                        <td>R$210.00</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="column">
+                <table>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                    </tr>
+                    <tr>
+                        <td>Espetinho</td>
+                        <td>R$8.00</td>
+                    </tr>
+                    <tr>
+                        <td>Pastel</td>
+                        <td>R$5.00</td>
+                    </tr>
+                    <tr>
+                        <td>Filé</td>
+                        <td>R$35.00</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <a href="https://sites.google.com/view/fabricio10/p%C3%A1gina-inicial/cursos/pweb/html-b%C3%A1sico" target="_blank">
+            <br/>
+            Aprenda a fazer página aqui
+        </a>
+   </body>
+</html>

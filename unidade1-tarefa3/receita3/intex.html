@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">    
+        <link href="estilo.css" rel="stylesheet">  
+    </head>
+    <body>
+        <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>     
+        <div id="seu amor" class="transition" style="opacity: 0"><h1>Guinness</h1></div>       
+    </body>   
+    <script>
+        function carregarDiv(){
+            let div = document.getElementById("seu amor")
+            if (div.style.opacity == 0) { 
+                div.style.opacity = 1 
+            }
+            else {
+                div.style.opacity = 0
+            }
+        }
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", carregarDiv)                 
+    </script>
+</html>

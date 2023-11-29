@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="UTF-8">  
+        <link href="estilo.css" rel="stylesheet">    
+    </head>
+    <body>
+        <div id="meu amor"><button id="botaoCarregar">Carregando cervejas...</button></div>
+        <br/>
+        <div id="teu amor"><button id="botaoOrdenar">Ordenar cervejas...</button></div>     
+        <br/>
+        <div id="seu amor"><button id="botaoEmbaralhar">Embaralhar cervejas...</button></div>                 
+    </body>   
+    <script>
+        let cervejas = ["Guiness", "Desperados", "Becks"]
+        function transformar(item){
+            return `<tr><td>${item}</td></tr>`
+        }
+        function carregarDiv(){
+            let div = document.getElementById("meu amor")
+            let cervejasHtml = cervejas.map(transformar) 
+            div.innerHTML = `<table>
+                <tr>
+                    <th>Cerveja</th>
+                </tr>
+                ${cervejasHtml.join("\n")}
+            </table>`
+        }
+        function ordenarDiv(){
+            let div = document.getElementById("meu amor")
+            if (div.innerHTML != `<button id="botaoCarregar">Carregando cervejas...</button>`) {
+                cervejas.sort()
+                carregarDiv()
+            }
+        }
+        function embaralharDiv(){
+            let div = document.getElementById("meu amor")
+            if (div.innerHTML != `<button id="botaoCarregar">Carregando cervejas...</button>`) {
+                cervejas.sort(() => Math.random() - 0.5)
+                carregarDiv()
+            }
+        }
+        let botaoCarregar = document.getElementById("botaoCarregar")
+        botaoCarregar.addEventListener("click", carregarDiv)       
+        let botaoOrdenar = document.getElementById("botaoOrdenar")          
+        botaoOrdenar.addEventListener("click", ordenarDiv)  
+        let botaoEmbaralhar = document.getElementById("botaoEmbaralhar")          
+        botaoEmbaralhar.addEventListener("click", embaralharDiv)  
+    </script>
+</html>

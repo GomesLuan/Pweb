@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>   
+    <head>
+        <meta charset="UTF-8">  
+        <link href="estilo.css" rel="stylesheet"> 
+    </head>
+    <body>
+        <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+        <div id="cervejasDiv"></div>            
+    </body>   
+    <script>
+        let cervejas = [
+            {
+                name: "Guiness", 
+                alcohol: "10%", 
+                style: "Imperial Stout",
+                ibu: "23"         
+            }, 
+            {
+                name: "Desperados",
+                alcohol: "6%",  
+                style: "English IPA",
+                ibu: "42"            
+            }, 
+            {
+                name: "Becks",
+                alcohol: "5%",
+                style: "APA",       
+                ibu: "35"    
+            }
+        ]
+        //cs é um array de cervejas
+        const carregarDiv = (cs, divId="cervejasDiv", heads=["Nome","Álcool","Estilo","Amargor"], props=["name","alcohol","style","ibu"]) => {
+            const div = document.getElementById(divId)
+            const itensHtml = cs.map(
+                item => `<tr>
+                    <td>${item[props[0]]}</td>
+                    <td>${item[props[1]]}</td>
+                    <td>${item[props[2]]}</td>
+                    <td>${item[props[3]]}</td>
+                </tr>`) 
+            div.innerHTML = `<table>
+                <tr>
+                    <th>${heads[0]}</th>
+                    <th>${heads[1]}</th>
+                    <th>${heads[2]}</th>
+                    <th>${heads[3]}</th>
+                </tr>
+                ${itensHtml.join("\n")}
+            </table>`
+        }
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", () => carregarDiv(cervejas) )                 
+    </script>
+</html>

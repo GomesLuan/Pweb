@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>ReceitaReact - 2</title>      
+    </head>
+    <body>
+        <div id="letreiro">
+        </div>
+        <div id="app">
+        </div>
+
+        <script src="libs/react.js"></script>
+        <script src="libs/react-dom.js"></script>
+        <script src="libs/babel.js"></script>
+
+        <script type="text/babel">
+            class TabelaBebidas extends React.Component{
+                render(){
+                    return (
+                        <div>
+                            <h1>{this.props.titulo}</h1>
+                            <table id="tabela" border="1">
+                                <thead>
+                                <tr><th>Nome</th><th>Marca</th></tr>
+                                </thead>
+                                <tbody>
+                                <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                                </tbody>
+                            </table>
+                        </div> 
+                    )
+                }
+            }
+
+            class Letreiro extends React.Component{
+                render(){
+                    return (
+                        <div>
+                            <img src="https://http2.mlstatic.com/D_NQ_NP_607049-MLB29155474006_012019-O.webp" width="200px"/>
+                            <p>"A cerveja é a resposta, mas agora não lembro qual era a pergunta"</p>
+                            <p>-ChatGPT</p>
+                        </div> 
+                    )
+                }
+            }
+
+            const TabelaBebidas__ = () => {
+                return (
+                <div>
+                    <h1>Tabela de Bebidas</h1>
+                    <table id="tabela" border="1">
+                        <thead>
+                            <tr><th>Nome</th><th>Marca</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                )  
+            }
+
+            ReactDOM.render(
+                <Letreiro/>,
+                document.getElementById("letreiro")
+            )
+
+            ReactDOM.render(
+                <TabelaBebidas titulo="Tabela de Cana"/>,
+                document.getElementById("app")
+            )
+        </script>
+    </body>
+</html>

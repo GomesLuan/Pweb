@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ReactZero</title> 
+        <link href="estilo.css" rel="stylesheet">      
+    </head>
+    <body>
+        <div id="app">
+        </div>
+        <script src="libs/react.js"></script>
+        <script src="libs/react-dom.js"></script>
+        <script>
+            ReactDOM.render(
+                React.createElement(
+                    'table',
+                    null,
+                    React.createElement(
+                        'tr',
+                        null,
+                        React.createElement('th', null, 'Nome'),
+                        React.createElement('th', null, 'Idade'),
+                    ),
+                    React.createElement(
+                        'tr',
+                        null,
+                        React.createElement('td', null, 'Luis'),
+                        React.createElement('td', null, '23'),
+                    ),
+                    React.createElement(
+                        'tr',
+                        null,
+                        React.createElement('td', null, 'Ana'),
+                        React.createElement('td', null, '32'),
+                    ),
+                ),
+                document.getElementById("app"))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ReactZero</title> 
+        <link href="estilo.css" rel="stylesheet">      
+    </head>
+    <body>
+        <div id="cabecalho">
+        </div>
+        <div id="botao">
+        </div>
+        <br/>
+        <div id="app">
+        </div>
+        <script src="libs/react.js"></script>
+        <script src="libs/react-dom.js"></script>
+        <script src="libs/babel.js"></script>
+
+        <script type="text/babel">
+            let bebidas = [
+                {
+                    "nome" : "Havana",
+                    "marca" : "Engenho Anísio Santiago"
+                },
+                {
+                    "nome" : "Caipirinha",
+                    "marca" : "Barraca do Seu Zé"
+                },
+                {
+                    "nome" : "Cerveja",
+                    "marca" : "Bar da Esquina"
+                }
+            ]
+
+            const Cabecalho = () => <h1>Minha tabela de bebidas</h1>
+
+            const Botao = () => <button onClick={renderTabela}>Carregar bebidas</button>
+
+            const TabelaBebidas = () => {
+                const itensHtml = bebidas.map(obj => 
+                    <tr>
+                        <td>{obj["nome"]}</td>
+                        <td>{obj["marca"]}</td>
+                    </tr>
+                )
+                const  tabela = <div id="app">
+                    <Cabecalho/>
+                    <table id="tabela" border="1">
+                        <thead>
+                            <tr><th>Nome</th><th>Marca</th></tr>
+                        </thead>
+                        <tbody>
+                            {itensHtml}
+                        </tbody>
+                    </table>
+                </div>
+                return tabela
+            }
+
+            const renderTabela = () => {
+                ReactDOM.render(
+                    <TabelaBebidas/>,
+                    document.getElementById("app")
+                )
+            }
+
+            ReactDOM.render(
+                <Botao/>,
+                document.getElementById("botao")
+            )
+        </script>
+    </body>
+</html>
